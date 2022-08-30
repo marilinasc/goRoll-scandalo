@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Go Roll | Inicio</title>
+        <!--FAVICON-->
+        <link rel="shortcut icon" href="./assets/icon.PNG"/>
+        <!--CSS-->
+        <link rel="stylesheet" href="./styles/styles.css"/>
+        <!--FONT-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+        <!--RESPONSIVE-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!--ANIMATE-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+        <!--BOOTSTRAP-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    
+    <body>
+        <!--Inicio de HEADER--> 
+        <header>
+            <nav class="navbar navbar-expand-lg" id="header__navbar">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="./index.html">
+                        <img id="logo" src="./assets/logo.png" alt="logo" width="200px" title="Logo"/>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav"> 
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item px-2" id="header__navbar__item">
+                                <a class="nav-link active" id="header__navbar__a" aria-current="page" href="./index.html">INICIO</a>
+                            </li>   
+                            <li class="nav-item px-2" id="header__navbar__item">
+                                <a class="nav-link active" id="header__navbar__a" aria-current="page" href="#rollers">ROLLERS</a>
+                            </li>  
+                            <li class="nav-item px-2" id="header__navbar__item">
+                                <a class="nav-link active" id="header__navbar__a" aria-current="page" href="">ACCESORIOS</a>
+                            </li>  
+                            <li class="nav-item px-2" id="header__navbar__item">
+                                <a class="nav-link active" id="header__navbar__a" aria-current="page" href="">CONTACTO</a>
+                            </li>  
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!--Cierre de HEADER-->
+        <!--Inicio de CONTENT-->
+        <article class="article" >
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="./assets/imagen6.PNG" class="d-block w-100" alt="imagen1">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1 class="article__portada">RESISTEN TODA TU ENERGIA</h1>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="./assets/imagen4.PNG" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1 class="article__portada">PARA PRINCIPIANTES Y PROFESIONALES</h1>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./assets/imagen1.PNG" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1 class="article__portada">COMODIDAD Y DURABILIDAD</h1>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <div class="card-group productos" id="rollers">
+                <div class="card">
+                    <img src="./assets/pro1.PNG" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    FUSION
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong> DISEÑO EXCLUSIVO </strong> 
+                                        <ul>
+                                            <li>RUEDA: 100 MM </li>
+                                            <li>FRAME: Aluminio</li>
+                                            <li>TALLES: fijos 36 al 41</li>
+                                            <li>COLORES: Fucsia - Violeta</li>
+                                            <li>AJUSTE: con hebilla, correa y cordones</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./assets/pro2.PNG" class="card-img-top" alt="...">
+                    <div class="card-body ">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    STREET DARK
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>BOTA RIGIDA, MAXIMO CONTROL</strong>
+                                        <ul>
+                                            <li>RUEDA: 80 MM </li>
+                                            <li>FRAME: Aluminio </li>
+                                            <li>TALLES: fijos 38 al 42</li>
+                                            <li>COLORES: Negro con detalles rojos</li>
+                                            <li>AJUSTE: con hebilla y cordones planos</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./assets/pro3.PNG" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    STREET
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>MAYOR DUREZA</strong>
+                                        <ul>
+                                            <li>RUEDA: 80 MM </li>
+                                            <li>FRAME: Aluminio </li>
+                                            <li>TALLES: fijos 38 / 40 / 42</li>
+                                            <li>COLORES: Blanco </li>
+                                            <li>AJUSTE: con hebilla, correa y cordones </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>  
+        <!--Cierre de CONTENT-->  
+
+        <!--Inicio de FOOTER-->
+        <footer class= "container-fluid">
+            <div class= "row">
+                <div class="col icons">
+                    <a href="https://es-la.facebook.com/">
+                        <img  id="facebook" src="./assets/facebook.png" alt="facebook" title="facebook"/>
+                    </a>
+                    <a href="https://www.instagram.com/">
+                        <img  id="instagram" src="./assets/instagram.png" alt="instagram" title="instagram"/>
+                    </a>
+                    <a href="https://es-la.facebook.com/">
+                        <img  id="facebook" src="./assets/whatsapp.png" alt="whatsapp" title="whatsapp"/>
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <!--Cierre de FOOTER-->
+        <!--BOOTSTRAP -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+          </script>
+        <!--Archivo JS -->
+        <script src="./app.js"></script>
+    </body>
+</html>
