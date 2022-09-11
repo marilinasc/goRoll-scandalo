@@ -44,7 +44,13 @@
                             </li>  
                             <li class="nav-item px-2" id="header__navbar__item">
                                 <a class="nav-link active" id="header__navbar__a" aria-current="page" href="">CONTACTO</a>
-                            </li>  
+                            </li> 
+                            <li class="nav-item px-2" id="header__navbar__item">
+                                <a class="nav-link active" id="header__navbar__a" aria-current="page" href="#listaCarrito">
+                                    <img id="logo" src="./assets/carrito.png" alt="carrito" width="40px" title="carrito"/>
+                                    <span id="cantidadProductos" class="position-absolute badge bg-danger"> 0 </span>
+                                </a>
+                            </li> 
                         </ul>
                     </div>
                 </div>
@@ -114,6 +120,7 @@
                                 </div>
                             </div>
                         </div>
+                        <button type="button" class="btn btn-danger">Agregar al carrito</button>
                     </div>
                 </div>
                 <div class="card">
@@ -140,6 +147,7 @@
                                 </div>
                             </div>
                         </div>
+                        <button type="button" class="btn btn-danger">Agregar al carrito</button>
                     </div>
                 </div>
                 <div class="card">
@@ -166,10 +174,27 @@
                                 </div>
                             </div>
                         </div>
+                        <button type="button" class="btn btn-danger">Agregar al carrito</button>
                     </div>
                 </div>
             </div>
-        </article>  
+
+            <div>
+                <h1> Carrito de compras </h1>
+                <p id="listaCarrito"> </p>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Talle</th>
+                        <th scope="col">Precio</th>
+                      </tr>
+                    </thead>
+                    <tbody id="items"></tbody>
+                    <tfoot id="importeTotal" ></tfoot>
+                </table>
+            </div>
+        </article>
         <!--Cierre de CONTENT-->  
 
         <!--Inicio de FOOTER-->
