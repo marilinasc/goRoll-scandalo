@@ -22,7 +22,7 @@
     
     <body>
         <!--Inicio de HEADER--> 
-        <header>
+        <header class="sticky-top">
             <nav class="navbar navbar-expand-lg" id="header__navbar">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="./index.html">
@@ -95,104 +95,26 @@
                 </button>
             </div>
 
-            <div class="card-group productos" id="rollers">
-                <div class="card">
-                    <img src="./assets/pro1.PNG" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    FUSION
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <strong> DISEÑO EXCLUSIVO </strong> 
-                                        <ul>
-                                            <li>RUEDA: 100 MM </li>
-                                            <li>FRAME: Aluminio</li>
-                                            <li>TALLES: fijos 36 al 41</li>
-                                            <li>COLORES: Fucsia - Violeta</li>
-                                            <li>AJUSTE: con hebilla, correa y cordones</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-danger">Agregar al carrito</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./assets/pro2.PNG" class="card-img-top" alt="...">
-                    <div class="card-body ">
-                        <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    STREET DARK
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <strong>BOTA RIGIDA, MAXIMO CONTROL</strong>
-                                        <ul>
-                                            <li>RUEDA: 80 MM </li>
-                                            <li>FRAME: Aluminio </li>
-                                            <li>TALLES: fijos 38 al 42</li>
-                                            <li>COLORES: Negro con detalles rojos</li>
-                                            <li>AJUSTE: con hebilla y cordones planos</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-danger">Agregar al carrito</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./assets/pro3.PNG" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    STREET
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <strong>MAYOR DUREZA</strong>
-                                        <ul>
-                                            <li>RUEDA: 80 MM </li>
-                                            <li>FRAME: Aluminio </li>
-                                            <li>TALLES: fijos 38 / 40 / 42</li>
-                                            <li>COLORES: Blanco </li>
-                                            <li>AJUSTE: con hebilla, correa y cordones </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-danger">Agregar al carrito</button>
-                    </div>
-                </div>
-            </div>
+            <div class="card-group" id="rollers">
+            </div>  
 
-            <div>
+            <div class="cart" >
                 <h1> Carrito de compras </h1>
                 <p id="listaCarrito"> </p>
                 <table class="table">
                     <thead>
-                      <tr>
-                        <th scope="col">Producto</th>
-                        <th scope="col">Talle</th>
-                        <th scope="col">Precio</th>
-                      </tr>
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Precio</th>                      
+                        </tr>
                     </thead>
                     <tbody id="items"></tbody>
-                    <tfoot id="importeTotal" ></tfoot>
                 </table>
+                <h5 id="importeTotal"></h5>
+                <div id="procederCompra"></div>
+                <div id="metodoPago"></div>
+                <div id="cuotas"></div>
+                <h5 id="importeCuotas"></h5>
             </div>
         </article>
         <!--Cierre de CONTENT-->  
