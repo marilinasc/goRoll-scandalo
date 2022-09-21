@@ -4,21 +4,25 @@ let productos = [
         id:1,
         nombre: "FUSION",
         precio: 32000,
-        imagen: "./assets/pro1.PNG"
+        imagen: "./assets/pro1.PNG",
+        talle: [36,37,38,39,40,41]
     },
     {
         id: 2,
         nombre: "STREET",
         precio: 28000,
-        imagen: "./assets/pro2.PNG"
+        imagen: "./assets/pro2.PNG",
+        talle: [38,40,42]
     },
     {
         id: 3,
         nombre: "STREET DARK",
         precio: 35000,
-        imagen: "./assets/pro3.PNG"
+        imagen: "./assets/pro3.PNG",
+        talle: [38,39,40,41,42]
     },
 ]
+
 const carrito = []
 
 // Funciones
@@ -54,34 +58,71 @@ listarProductos ()
 // Calcular del importe total de la compra
 function totalCarrito () {
     let total = 0
-    carrito.forEach((producto)=>(total+= producto.precio))
+    carrito.forEach((producto)=>(total+= (producto.precio*producto.cantidad)))
     return total
 }
 
-// Listar las formas de pago y calcular cuotas en caso de tarjeta o descuento en caso de efecto.
+// Calcular cantidad de productos en el carrito
+function cantidadProductosCarrito () {
+    let totalProductos = 0
+    carrito.forEach((producto)=>(totalProductos+= (producto.cantidad)))
+    return totalProductos
+}
+
+// Listar las formas de pago y calcular cuotas en caso de tarjeta o descuento en caso de efectivo.
 function metodoPago () {
     document.querySelector ("#metodoPago").innerHTML= `
-    <select id="metodoSeleccionado" class="form-select" aria-label="Default select example">
-    <option selected> Seleccione una forma de pago </option>
-    <option value="1"> Tarjeta de credito </option>
-    <option value="2"> Efectivo </option>`
+        <select id="metodoSeleccionado" class="form-select" aria-label="Default select example">
+        <option selected> Seleccione una forma de pago </option>
+        <option value="1"> Tarjeta de credito </option>
+        <option value="2"> Efectivo </option>
+    `
     let metodoSeleccionado = document.querySelector("#metodoSeleccionado")
     metodoSeleccionado.addEventListener("change", (e)=> {
     if (e.target.value === "1") {
+        document.querySelector ("#importeCuotas").innerHTML= ""
         document.querySelector ("#cuotas").innerHTML= `
         <input id="cantidadCuotas" class="form-control" type="text" placeholder="Ingrese la cantidad de cuotas" aria-label="default input example">`
         const formName = document.querySelector("#cantidadCuotas")
         formName.addEventListener ("input", (e)=> {
             if (e.target.value > 0 && e.target.value <= 12) {
             document.querySelector ("#importeCuotas").innerHTML= "El importe de cada cuota es: $" + Math.round(((totalCarrito ())/(e.target.value)))
+            document.querySelector ("#datosTarjeta").innerHTML= `
+            <h5> Ingrese los datos de la tarjeta de credito: </h5>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Numero</span>
+                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha vencimiento</span>
+                <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Codigo de seguridad</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            </div>
+            `
             } else {
                 document.querySelector ("#importeCuotas").innerHTML= `<h5 class = "text-danger"> Error: Ingrese un numero entre 1 y 12 </h5>`
             }
         })
     } else if (e.target.value === "2") {
+        document.querySelector ("#datosTarjeta").innerHTML= ""
+        document.querySelector ("#cuotas").innerHTML= ""
         document.querySelector ("#importeCuotas").innerHTML= "Tienes un 15% OFF! El precio final es: $" + Math.round(totalCarrito()-(totalCarrito()*0.15))
     }
 })
+document.querySelector ("#confirmarCompra").innerHTML = `<button type="button" class="btn btn-danger btn-sm"> Confirmar Compra </button>`
+}
+
+// Solicitar los datos del cliente
+function datosCliente () {
+    document.querySelector (".cart").innerHTML = ""
+    document.querySelector ("#procederCompra").innerHTML = ""
+    const mostrarDatosCliente = document.querySelector ("#datosCliente")
+    mostrarDatosCliente.style.visibility = "visible"
+    recuperarDatos ()
+    metodoPago ()
 }
 
 // Listar los productos del carrito 
@@ -93,31 +134,77 @@ function productosCarrito (indice) {
             listado.className = "item"
             listado.innerHTML =
             `<th> ${producto.nombre} </th>
+            <th> ${producto.cantidad} </th>
             <th> ${producto.precio} </th>
             <button type="button" class="btn btn-outline-danger" onClick= "eliminarProducto (${indice})"> Eliminar </button>
             `
             listaCarrito.appendChild (listado) 
     })
-    const importeTotal = carrito.reduce ((acumulador,producto)=>acumulador + producto.precio,0)
-    document.querySelector ("#importeTotal").innerHTML = "El importe total de la compra es: $" +importeTotal
-    document.querySelector ("#procederCompra").innerHTML = `<button type="button" class="btn btn-danger btn-sm"> Proceder a la compra </button>`
+    document.querySelector ("#importeTotal").innerHTML = "Total de la compra: $" +totalCarrito ()
+    document.querySelector ("#procederCompra").innerHTML = `<button type="button" class="btn btn-danger btn-sm"> Iniciar compra </button>`
 }
 
 // Agregar productos al carrito
-function agregarProducto (indice) {
-    carrito.push (productos [indice])
-    document.querySelector ("#cantidadProductos").innerHTML = +carrito.length
-    productosCarrito ()
-    totalCarrito ()
+function agregarProducto (indice){
+    // A traves del ID que tiene el indice, verificar si el producto que estoy agregando ya existe en el carrito
+    const productoEncontrado = carrito.findIndex ((productoCarrito)=> {
+        return productoCarrito.id === productos[indice].id
+    })
+    if (productoEncontrado === -1) {
+        const productoAgregar = productos[indice]
+        // Se crea una nueva propiedad al objeto
+        productoAgregar.cantidad = 1
+        carrito.push (productoAgregar)
+        document.querySelector ("#cantidadProductos").innerHTML = +cantidadProductosCarrito ()
+        productosCarrito ()
+        totalCarrito ()
+    } else {
+        carrito [productoEncontrado].cantidad +=1
+        document.querySelector ("#cantidadProductos").innerHTML = +cantidadProductosCarrito ()
+        productosCarrito ()
+        totalCarrito ()
+    }
+    guardarCarrito ()
 }
 
 // Eliminar productos del carrito
 function eliminarProducto (indice) {
     carrito.splice (indice,1)
-    document.querySelector ("#cantidadProductos").innerHTML = +carrito.length
+    document.querySelector ("#cantidadProductos").innerHTML = +cantidadProductosCarrito ()
     productosCarrito ()
     totalCarrito ()
 }
 
-// Escuchar boton "proceder compra"
-document.getElementById ("procederCompra").onclick = function() {metodoPago()}
+// Boton "iniciar compra"
+document.getElementById ("procederCompra").onclick = function() {datosCliente()}
+
+// Recuperar datos del cliente
+const nombre = document.querySelector("#nombre")
+nombre.addEventListener ("input", (e)=> {
+    e.preventDefault ()
+    localStorage.setItem ("nombre", nombre.value)
+})
+const apellido = document.querySelector("#apellido")
+apellido.addEventListener ("input", (e)=> {
+    e.preventDefault ()
+    localStorage.setItem ("apellido", apellido.value)
+})
+
+const direccion = document.querySelector("#direccion")
+direccion.addEventListener ("input", (e)=> {
+    e.preventDefault ()
+    localStorage.setItem ("direccion", direccion.value)
+})
+
+const codigoPostal = document.querySelector("#codigoPostal")
+codigoPostal.addEventListener ("input", (e)=> {
+    e.preventDefault ()
+    localStorage.setItem ("codigoPostal", codigoPostal.value)
+})
+
+function recuperarDatos () {
+    nombre.value = localStorage.getItem ("nombre")
+    apellido.value = localStorage.getItem ("apellido")
+    direccion.value = localStorage.getItem ("direccion")
+    codigoPostal.value = localStorage.getItem ("codigoPostal")
+}

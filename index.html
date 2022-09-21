@@ -95,27 +95,53 @@
                 </button>
             </div>
 
-            <div class="card-group" id="rollers">
-            </div>  
-
+            <div class="card-group" id="rollers"></div>
             <div class="cart" >
-                <h1> Carrito de compras </h1>
                 <p id="listaCarrito"> </p>
+                <h1> Carrito de compras </h1>
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">Producto</th>
-                            <th scope="col">Precio</th>                      
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Precio unitario</th> 
                         </tr>
                     </thead>
                     <tbody id="items"></tbody>
                 </table>
-                <h5 id="importeTotal"></h5>
-                <div id="procederCompra"></div>
-                <div id="metodoPago"></div>
-                <div id="cuotas"></div>
-                <h5 id="importeCuotas"></h5>
             </div>
+            <h5 id="importeTotal"></h5>
+
+            <div id="procederCompra"></div>
+            <form class= "formularioCliente" id="datosCliente">
+                <h5> Complete sus datos: </h5>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
+                    <input id ="nombre" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Apellido</span>
+                    <input id ="apellido" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Direccion</span>
+                    <input id ="direccion" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Codigo Postal</span>
+                    <input id ="codigoPostal" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+            </form>
+
+            <div id="formaPago"></div>
+                <div id="metodoPago"></div>
+                <div id="tarjeta"></div>
+                    <div id="cuotas"></div>
+                    <h5 id="importeCuotas"></h5>
+                    <div id="datosTarjeta"></div>
+                </div>
+            </div>
+            <div id="confirmarCompra" class= "comprar"></div>
         </article>
         <!--Cierre de CONTENT-->  
 
