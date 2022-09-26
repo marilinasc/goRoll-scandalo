@@ -47,11 +47,9 @@ footer {
     padding-bottom: 5%;
 }
 
-.comprar {
-    padding-top: 2%;
-    padding-bottom: 5%;
-}
 
 .formularioCliente {
     visibility: hidden;
+    padding-top: 2%;
+    padding-bottom: 5%;
 }
