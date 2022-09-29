@@ -152,16 +152,28 @@ function metodoPago () {
 
 // Solicitar los datos del cliente
 function datosCliente () {
-    document.querySelector (".cart").innerHTML = ""
-    document.querySelector ("#procederCompra").innerHTML = ""
+//  document.querySelector (".cart").innerHTML = ""
+//  document.querySelector ("#procederCompra").innerHTML = ""
     const mostrarDatosCliente = document.querySelector ("#datosCliente")
     mostrarDatosCliente.style.visibility = "visible"
     recuperarDatos ()
     metodoPago ()
 }
 
+// Sweet Alert: agregar producto al carrito
+function alertProductoAgregado () {
+    Swal.fire({
+        position: 'top-end',
+        title: 'Producto agregado al carrito!',
+        icon: 'success',
+        width: '30%',
+    })
+}
+
 // Agregar productos al carrito
 function agregarProducto (indice){
+    const mostrarDatosCliente = document.querySelector ("#datosCliente")
+    mostrarDatosCliente.style.visibility = "hidden"
     // A traves del ID que tiene el indice, verificar si el producto que estoy agregando ya existe en el carrito
     const productoEncontrado = carrito.findIndex ((productoCarrito)=> {
         return productoCarrito.id === productos[indice].id
@@ -175,17 +187,21 @@ function agregarProducto (indice){
         productosCarrito ()
         totalCarrito ()
         guardarCarrito ()
+        alertProductoAgregado ()
     } else {
         carrito [productoEncontrado].cantidad +=1
         document.querySelector ("#cantidadProductos").innerHTML = +cantidadProductosCarrito ()
         productosCarrito ()
         totalCarrito ()
         guardarCarrito ()
+        alertProductoAgregado ()
     }
 }
 
 // Eliminar productos del carrito
 function eliminarProducto (indice) {
+    const mostrarDatosCliente = document.querySelector ("#datosCliente")
+    mostrarDatosCliente.style.visibility = "hidden"
     carrito.splice (indice,1)
     document.querySelector ("#cantidadProductos").innerHTML = +cantidadProductosCarrito ()
     productosCarrito ()
