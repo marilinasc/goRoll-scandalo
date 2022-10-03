@@ -1,0 +1,27 @@
+[
+    {
+        "id":1,
+        "nombre": "FUSION",
+        "precio": 32000,
+        "imagen": "./assets/pro1.PNG",
+        "talle": [36,37,38,39,40,41]
+    },
+    {
+        "id": 2,
+        "nombre": "STREET",
+        "precio": 28000,
+        "imagen": "./assets/pro2.PNG",
+        "talle": [38,40,42]
+    },
+    {
+        "id": 3,
+        "nombre": "STREET DARK",
+        "precio": 35000,
+        "imagen": "./assets/pro3.PNG",
+        "talle": [38,39,40,41,42]
+    }
+]
+
+
+
+

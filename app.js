@@ -1,31 +1,10 @@
-//Arrays
-const talleFusion = [36,37,38,39,40,41]
-const talleStreet = [38,40,42]
-const talleStreetDark = [38,39,40,41,42]
-
-let productos = [
-    {
-        id:1,
-        nombre: "FUSION",
-        precio: 32000,
-        imagen: "./assets/pro1.PNG",
-        talle:[...talleFusion]
-    },
-    {
-        id: 2,
-        nombre: "STREET",
-        precio: 28000,
-        imagen: "./assets/pro2.PNG",
-        talle: [...talleStreet]
-    },
-    {
-        id: 3,
-        nombre: "STREET DARK",
-        precio: 35000,
-        imagen: "./assets/pro3.PNG",
-        talle: [...talleStreetDark]
-    },
-]
+let productos = []
+const solicitarData = async ()=> {
+    const respuesta = await fetch ("data.json")
+    const data = await respuesta.json()
+    productos.push (...data)
+} 
+solicitarData ()
 
 const carrito = JSON.parse(localStorage.getItem ("productosCarrito")) || []
 
@@ -65,7 +44,6 @@ productosCarrito ()
 
 // Mostrar informacion de LocalStorage
 document.querySelector ("#cantidadProductos").innerHTML = +cantidadProductosCarrito ()
-
 
 // Listar los productos en la pagina principal
 const listarProductos = () => {
@@ -174,7 +152,7 @@ function alertProductoAgregado () {
 function agregarProducto (indice){
     const mostrarDatosCliente = document.querySelector ("#datosCliente")
     mostrarDatosCliente.style.visibility = "hidden"
-    // A traves del ID que tiene el indice, verificar si el producto que estoy agregando ya existe en el carrito
+    // A traves del ID que tiene el indice, verifica si el producto que estoy agregando ya existe en el carrito
     const productoEncontrado = carrito.findIndex ((productoCarrito)=> {
         return productoCarrito.id === productos[indice].id
     })
