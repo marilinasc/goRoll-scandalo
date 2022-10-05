@@ -40,12 +40,6 @@
                                 <a class="nav-link active" id="header__navbar__a" aria-current="page" href="#rollers">ROLLERS</a>
                             </li>  
                             <li class="nav-item px-2" id="header__navbar__item">
-                                <a class="nav-link active" id="header__navbar__a" aria-current="page" href="">ACCESORIOS</a>
-                            </li>  
-                            <li class="nav-item px-2" id="header__navbar__item">
-                                <a class="nav-link active" id="header__navbar__a" aria-current="page" href="">CONTACTO</a>
-                            </li> 
-                            <li class="nav-item px-2" id="header__navbar__item">
                                 <a class="nav-link active" id="header__navbar__a" aria-current="page" href="#listaCarrito">
                                     <img id="logo" src="./assets/carrito.png" alt="carrito" width="40px" title="carrito"/>
                                     <span id="cantidadProductos" class="position-absolute badge bg-danger"> 0 </span>
@@ -95,7 +89,8 @@
                 </button>
             </div>
 
-            <div class="card-group" id="rollers"></div>
+            <div class="card-group row row-cols-4 row-cols-md-3 g-4" id="rollers"></div>
+
             <div class="cart" >
                 <p id="listaCarrito"> </p>
                 <h1> Carrito de compras </h1>
@@ -104,7 +99,8 @@
                         <tr>
                             <th scope="col">Producto</th>
                             <th scope="col">Cantidad</th>
-                            <th scope="col">Precio unitario</th> 
+                            <th scope="col">Precio unitario</th>
+                            <th scope="col">Subtotal</th>  
                         </tr>
                     </thead>
                     <tbody id="items"></tbody>
@@ -117,19 +113,19 @@
                     <h5> Complete sus datos: </h5>
                     <div class="input-group input-group-sm mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
-                        <input id ="nombre" required type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        <input id ="nombre" name="nombre" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                     </div>
                     <div class="input-group input-group-sm mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Apellido</span>
-                        <input id ="apellido" required type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        <input id ="apellido" name ="apellido" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                     </div>
                     <div class="input-group input-group-sm mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Direccion</span>
-                        <input id ="direccion" required type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        <input id ="direccion" name ="direccion" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                     </div>
                     <div class="input-group input-group-sm mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-sm">Codigo Postal</span>
-                        <input id ="codigoPostal" required type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        <input id ="codigoPostal" name ="codigoPostal" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                     </div>
                     <div id="formaPago"></div>
                     <div id="metodoPago"></div>
@@ -139,7 +135,7 @@
                         <div id="datosTarjeta"></div>
                     </div>
                 </div>
-                <button class="btn btn-danger btn-sm" id="confirmarCompra"> Confirmar Compra </button>
+                <button type = "button" class="btn btn-danger btn-sm" id="confirmarCompra"> Confirmar Compra </button>
             </form>            
         </article>
         <!--Cierre de CONTENT-->  

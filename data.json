@@ -9,17 +9,39 @@
     {
         "id": 2,
         "nombre": "STREET",
-        "precio": 28000,
+        "precio": 28400,
         "imagen": "./assets/pro2.PNG",
         "talle": [38,40,42]
     },
     {
         "id": 3,
         "nombre": "STREET DARK",
-        "precio": 35000,
+        "precio": 35200,
         "imagen": "./assets/pro3.PNG",
         "talle": [38,39,40,41,42]
+    },
+    {
+        "id": 4,
+        "nombre": "RISE",
+        "precio": 31500,
+        "imagen": "./assets/pro4.PNG",
+        "talle": [34,35,38,39,42]
+    },
+    {
+        "id": 5,
+        "nombre": "PRO",
+        "precio": 39500,
+        "imagen": "./assets/pro5.PNG",
+        "talle": [37,38,39,40,41]
+    },
+    {
+        "id": 6,
+        "nombre": "BLACK",
+        "precio": 31500,
+        "imagen": "./assets/pro6.PNG",
+        "talle": [34,35,38,39,42]
     }
+
 ]
 
 
