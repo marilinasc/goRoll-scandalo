@@ -1,5 +1,5 @@
+// Arrays
 let productos = []
-
 const carrito = JSON.parse(localStorage.getItem ("productosCarrito")) || []
 
 // Calcular cantidad de productos en el carrito
@@ -8,7 +8,6 @@ function cantidadProductosCarrito () {
     carrito.forEach((producto)=>(totalProductos+= (producto.cantidad)))
     return totalProductos
 }
-
 
 // Calcular del importe total de la compra
 function totalCarrito () {
@@ -129,6 +128,7 @@ function metodoPago () {
     }
 })
 }
+
 // Sweet Alert: agregar producto al carrito
 function alertProductoAgregado () {
     Swal.fire({
@@ -138,6 +138,18 @@ function alertProductoAgregado () {
         width: '30%',
     })
 }
+
+// Sweet Alert: eliminar producto del carrito
+function alertProductoEliminado () {
+    Swal.fire({
+        position: 'top-end',
+        title: 'Producto eliminado del carrito!',
+        icon: 'warning',
+        width: '30%',
+    })
+}
+
+
 // Sweet Alert: carrito vacio
 function alertCarritoVacio () {
     Swal.fire({
@@ -155,7 +167,6 @@ function datosCliente () {
     recuperarDatos ()
     metodoPago ()
 }
-
 
 // Agregar productos al carrito
 function agregarProducto (indice){
@@ -194,8 +205,8 @@ function eliminarProducto (indice) {
     productosCarrito ()
     totalCarrito ()
     guardarCarrito ()
+    alertProductoEliminado ()
 }
-
 
 // Validar si el carrito esta vacio antes de iniciar compra
 function validarCarrito () {
@@ -204,8 +215,6 @@ function validarCarrito () {
 
 // Boton "Iniciar compra"
 document.getElementById ("procederCompra").onclick = function() {validarCarrito ()}
-
-
 
 // Recuperar datos del cliente
 const nombre = document.querySelector("#nombre")
@@ -237,7 +246,6 @@ function recuperarDatos () {
     direccion.value = localStorage.getItem ("direccion")
     codigoPostal.value = localStorage.getItem ("codigoPostal")
 }
-
 
 // Sweet Alert: validacion de datos del formulario
 function datosCompletos () {
